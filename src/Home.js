@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 function Home() {
   return (
-    <div
+    
+    <  div
   className="container py-3 mt-3"
   style={{
-    backgroundImage: "url('/images/green.jpg')",
+    backgroundImage: "url('/images/white.jpg')",
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
@@ -12,7 +13,19 @@ function Home() {
     minHeight: "100vh",
     paddingTop: "120px" // حتى لا يغطي النافبار المحتوى
   }}
+  
 >
+<div
+  style={{
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    backgroundColor: "rgba(133, 104, 104, 0.3)", // طبقة بيضاء شفافة
+    zIndex: 0
+  }}
+></div>
 
 
       {/* Hero Section */}

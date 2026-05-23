@@ -2,7 +2,35 @@ import React from "react";
 
 export default function About() {
   return (
-    <div className="container py-5 mt-5">
+    <div
+  style={{
+    backgroundImage: "url('/images/hamed.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    minHeight: "100vh",
+    paddingTop: "120px",
+    paddingBottom: "50px",
+    position: "relative"
+  }}
+>
+  {/* Overlay */}
+  <div
+    style={{
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+      backgroundColor: "rgba(0, 0, 0, 0.4)", // غطاء غامق خفيف
+      zIndex: 0
+    }}
+  ></div>
+
+  {/* المحتوى */}
+  <div className="container py-5 mt-5" style={{ position: "relative", zIndex: 1 }}>
+    {/* ضع هنا كل محتوى صفحة About */}
+
       <div className="row justify-content-center">
         <div className="col-lg-9">
 
@@ -140,6 +168,7 @@ export default function About() {
             </button>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
