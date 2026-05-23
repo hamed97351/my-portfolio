@@ -5,7 +5,7 @@ function Home() {
     <  div
   className="container py-3 mt-3"
   style={{
-    backgroundImage: "url('/images/mine.jpg')",
+    backgroundImage: "url('/images/tree.jpg')",
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
