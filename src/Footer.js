@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -31,41 +32,33 @@ export default function Footer() {
 
             <ul className="list-unstyled d-flex flex-column gap-3">
 
-              <li>
-                <a
-                  href="/"
-                  className="text-decoration-none text-light-emphasis"
-                >
-                  Home
-                </a>
-              </li>
+         
 
-              <li>
-                <a
-                  href="/about"
-                  className="text-decoration-none text-light-emphasis"
-                >
-                  About
-                </a>
-              </li>
+   <li className="nav-item">
+            <Link className="text-decoration-none text-light-emphasis"to="/">
+              Home
+            </Link>
+          </li>
 
-              <li>
-                <a
-                  href="/projects"
-                  className="text-decoration-none text-light-emphasis"
-                >
-                  Projects
-                </a>
-              </li>
 
-              <li>
-                <a
-                  href="/contact"
-                  className="text-decoration-none text-light-emphasis"
-                >
-                  Contact
-                </a>
-              </li>
+    <li className="nav-item">
+            <Link className="text-decoration-none text-light-emphasis" to="/about">
+              About
+            </Link>
+          </li>
+              <li className="nav-item">
+            <Link className="text-decoration-none text-light-emphasis" to="/FProjects">
+              project
+            </Link>
+          </li>
+
+    <li className="nav-item">
+            <Link className="text-decoration-none text-light-emphasis" to="/Contact">
+              Contact
+            </Link>
+          </li>
+
+        
 
             </ul>
           </div>
