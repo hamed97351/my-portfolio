@@ -1,29 +1,35 @@
 import React, { useRef } from "react";
-import emailjs from "@emailjs/browser";
 
 export default function Contact() {
 
   const form = useRef();
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
-        "service_pi6retj",
-        "template_rsedjjq ",
-        form.current,
-        "PZTUaqE-oFUhP8nEv "
-      )
-      .then(
-        () => {
-          alert("Message sent successfully!");
-        },
-        (error) => {
-          alert("Failed to send message.");
-          console.log(error);
-        }
-      );
+    const formData = {
+      user_name: form.current.user_name.value,
+      user_email: form.current.user_email.value,
+      subject: form.current.subject.value,
+      message: form.current.message.value,
+    };
+
+    const res = await fetch("http://localhost/myapi/contact.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await res.json();
+
+    if (data.status === "success") {
+      alert("Message saved successfully!");
+      form.current.reset();
+    } else {
+      alert("Failed to save message.");
+    }
   };
 
   return (
@@ -33,10 +39,7 @@ export default function Contact() {
 
           {/* Header */}
           <div className="text-center mb-5">
-            <h1 className="display-4 fw-bold mb-3">
-              Contact Me
-            </h1>
-
+            <h1 className="display-4 fw-bold mb-3">Contact Me</h1>
             <p className="text-muted fs-5">
               Have a project in mind or want to collaborate?
               Feel free to reach out — I’d love to hear from you.
@@ -49,18 +52,13 @@ export default function Contact() {
             <div className="col-lg-7">
               <div className="p-4 p-lg-5 border rounded-4 shadow-sm bg-white">
 
-                <h3 className="fw-bold mb-4">
-                  Send a Message ✉️
-                </h3>
+                <h3 className="fw-bold mb-4">Send a Message ✉️</h3>
 
                 <form ref={form} onSubmit={sendEmail}>
 
                   {/* Name */}
                   <div className="mb-4">
-                    <label className="form-label fw-semibold">
-                      Full Name
-                    </label>
-
+                    <label className="form-label fw-semibold">Full Name</label>
                     <input
                       type="text"
                       name="user_name"
@@ -72,10 +70,7 @@ export default function Contact() {
 
                   {/* Email */}
                   <div className="mb-4">
-                    <label className="form-label fw-semibold">
-                      Email Address
-                    </label>
-
+                    <label className="form-label fw-semibold">Email Address</label>
                     <input
                       type="email"
                       name="user_email"
@@ -87,10 +82,7 @@ export default function Contact() {
 
                   {/* Subject */}
                   <div className="mb-4">
-                    <label className="form-label fw-semibold">
-                      Subject
-                    </label>
-
+                    <label className="form-label fw-semibold">Subject</label>
                     <input
                       type="text"
                       name="subject"
@@ -101,10 +93,7 @@ export default function Contact() {
 
                   {/* Message */}
                   <div className="mb-4">
-                    <label className="form-label fw-semibold">
-                      Message
-                    </label>
-
+                    <label className="form-label fw-semibold">Message</label>
                     <textarea
                       rows="6"
                       name="message"
@@ -125,10 +114,7 @@ export default function Contact() {
 
             {/* Contact Info */}
             <div className="col-lg-5">
-
               <div className="p-4 p-lg-5 bg-light rounded-4 h-100 shadow-sm">
-
-           
 
                 <p className="text-secondary lh-lg">
                   I’m currently available for freelance work,
@@ -136,70 +122,36 @@ export default function Contact() {
                 </p>
 
                 <div className="mt-4">
-
                   <div className="mb-4">
                     <h6 className="fw-bold">Email</h6>
-                    <p className="text-secondary mb-0">
-                      hamed2425ahmed@gmail.com
-                    </p>
+                    <p className="text-secondary mb-0">hamed2425ahmed@gmail.com</p>
                   </div>
 
                   <div className="mb-4">
                     <h6 className="fw-bold">Location</h6>
-                    <p className="text-secondary mb-0">
-                      jeddah, Saudi Arabia
-                    </p>
+                    <p className="text-secondary mb-0">Jeddah, Saudi Arabia</p>
                   </div>
 
                   <div className="mb-4">
                     <h6 className="fw-bold">Availability</h6>
-                    <p className="text-success mb-0">
-                      Available for new projects
-                    </p>
+                    <p className="text-success mb-0">Available for new projects</p>
                   </div>
-
                 </div>
 
                 {/* Social Links */}
                 <div className="mt-5">
-                  <h5 className="fw-bold mb-3">
-                    Follow Me
-                  </h5>
+                  <h5 className="fw-bold mb-3">Follow Me</h5>
 
                   <div className="d-flex gap-3 flex-wrap">
-
-                    <a
-                      href="https://github.com/hamed97351"
-                      className="btn btn-outline-dark rounded-pill px-4"
-                    >
-                      GitHub
-                    </a>
-
-                    <a
-                      href="https://www.linkedin.com/in/حامد-احمد-009342361/"
-                      className="btn btn-outline-dark rounded-pill px-4"
-                    >
-                      LinkedIn
-                    </a>
-                       <a
-                      href="https://www.facebook.com/share/19y6gmyXPW"
-                      className="btn btn-outline-dark rounded-pill px-4"
-                    >
-                      Facebook
-                    </a>
-
-                    <a
-                      href="#"
-                      className="btn btn-outline-dark rounded-pill px-4"
-                    >
-                      Twitter
-                    </a>
-
+                    <a href="https://github.com/hamed97351" className="btn btn-outline-dark rounded-pill px-4">GitHub</a>
+                    <a href="https://www.linkedin.com/in/حامد-احمد-009342361/" className="btn btn-outline-dark rounded-pill px-4">LinkedIn</a>
+                    <a href="https://www.facebook.com/share/19y6gmyXPW" className="btn btn-outline-dark rounded-pill px-4">Facebook</a>
+                    <a href="#" className="btn btn-outline-dark rounded-pill px-4">Twitter</a>
                   </div>
+
                 </div>
 
               </div>
-
             </div>
 
           </div>
