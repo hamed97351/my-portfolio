@@ -1,0 +1,221 @@
+body {
+    background-color: #e0f7fa;
+    font-family: 'Cairo', sans-serif;
+    direction: rtl;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+}
+body{
+    direction: rtl;
+}
+footer {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #004d40; /* لون الخلفية */
+    color: white; /* لون النص */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+footer {
+    justify-content: center;
+}
+.navbar-nav .nav-link {
+    color: white !important;
+    font-size: 18px;
+   
+
+}
+
+.search-dropdown {
+    position: relative;
+    display: inline-block;
+    padding: 0px 10px;
+}
+.search-dropdown-content {
+    display: none;
+    position: absolute;
+    top: 50px; /* تعديل الموضع */
+    left: 50%; /* تعديل الموضع */
+    transform: translateX(-50%);
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+
+}
+.search-dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.search-dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+.search-dropdown.show .search-dropdown-content {
+    display: block;
+}
+.navbar-nav {
+  justify-content: left;/* لجعل العناصر إلى اليسار */
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+.form-title {
+    font-size: 24px;
+    color: #00796b;
+    text-align: center;
+    margin-bottom: 20px;
+}
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+form div {
+    margin-bottom: 15px;
+}
+form label {
+    display: block;
+    margin-bottom: 5px;
+    background-color:#00796b;
+    font-size: 18px;
+    color: white;
+    height: 30px;
+    width: 25%;
+    border-radius: 6px;
+    padding: 3px;
+    
+}
+form input[type="text"], form input[type="date"], form input[type="file"], form button, form select {
+    width: 100%; /* جعل الزر بنفس عرض الحقول */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px; /* تكبير حجم الخط */
+}
+
+
+.card-img-top {
+    width: 100%; /* عرض الصورة بالكامل */
+    height: 50%; /* ارتفاع الصورة لنصف الكارد */
+    object-fit: cover; /* لضمان أن الصورة تغطي المساحة المحددة */
+}
+.card-body {
+    padding: 20px; /* مسافة داخلية */
+    text-align: right; /* محاذاة النص إلى اليمين */
+}
+/* تعديل خاصية التكبير */
+.modal {
+    display: none; /* إخفاء المودال */
+    position: fixed; /* تثبيت المودال في الشاشة */
+    z-index: 1; /* ز-اندكس */
+    padding-top: 100px; /* المسافة من أعلى الشاشة */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); /* اللون الأسود */
+    background-color: rgba(0,0,0,0.9); /* اللون الأسود بشفافية */
+}
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.media-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.media-icons a {
+    margin: 0 10px;
+    color: #00796b;
+    font-size: 24px;
+    text-decoration: none;
+}
+.media-icons a:hover {
+    color: #004d40;
+}
+.back-home {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #00796b;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    font-size: 16px; /* تكبير حجم الخط */
+}
+.back-home:hover {
+    background-color: #004d40;
+    
+}
+
+
+/* استعلامات الوسائط */
+@media (max-width: 992px) {
+  
+    
+    header nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+    }
+    header nav a {
+        margin: 5px 0;
+    }
+    .search-container {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+@media (max-width: 768px) {
+    .container {
+        max-width: 500px;
+        padding: 0 10px; 
+    }
+}
+@media (max-width: 576px) {
+    .container {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+    form input[type="text"], form input[type="date"], form input[type="file"], form button {
+        width: 100%;
+        padding: 8px;
+    }
+    .back-home {
+        padding: 8px 16px;
+    }
+}

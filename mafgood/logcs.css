@@ -1,0 +1,99 @@
+
+.header .auth-links{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+}
+.header .nav a {
+    color: white;
+    margin-left: 20px;
+}
+.header .nav a:hover {
+    color: #f8f9fa;
+}
+.header .auth-links {
+    display: flex;
+    align-items: center;
+}
+.header .auth-links a {
+    margin-left: 10px;
+}
+
+
+.forgot-password, .create-account {
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+
+
+.login-container {
+
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+.login-container h2 {
+    margin-bottom: 20px;
+}
+.form-control {
+    margin-bottom: 10px;
+}
+.bottom-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+.bottom-text a {
+    color: #007bff;
+    text-decoration: none;
+}
+.bottom-text a:hover {
+    text-decoration: underline;
+}
+
+
+
+.register-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+.register-container h2 {
+    margin-bottom: 20px;
+}
+.form-control {
+    margin-bottom: 10px;
+}
+
+.otp-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+.otp-container h2 {
+    margin-bottom: 20px;
+}
+.form-control {
+    margin-bottom: 10px;
+}
+.logregister-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+}

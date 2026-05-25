@@ -1,18 +1,18 @@
-import React, { useRef } from "react";
+import React from "react";
 
 export default function Contact() {
-
-  const form = useRef();
 
   const sendEmail = async (e) => {
     e.preventDefault();
 
     const formData = {
-      user_name: form.current.user_name.value,
-      user_email: form.current.user_email.value,
-      subject: form.current.subject.value,
-      message: form.current.message.value,
+      user_name: e.target.user_name.value,
+      user_email: e.target.user_email.value,
+      subject: e.target.subject.value,
+      message: e.target.message.value,
     };
+
+    console.log("Form Data:", formData);
 
     const res = await fetch("http://localhost/myapi/contact.php", {
       method: "POST",
@@ -23,10 +23,11 @@ export default function Contact() {
     });
 
     const data = await res.json();
+    console.log("Response:", data);
 
     if (data.status === "success") {
       alert("Message saved successfully!");
-      form.current.reset();
+      e.target.reset();
     } else {
       alert("Failed to save message.");
     }
@@ -36,8 +37,6 @@ export default function Contact() {
     <div className="container py-5 mt-5">
       <div className="row justify-content-center">
         <div className="col-lg-10">
-
-          {/* Header */}
           <div className="text-center mb-5">
             <h1 className="display-4 fw-bold mb-3">Contact Me</h1>
             <p className="text-muted fs-5">
@@ -47,16 +46,12 @@ export default function Contact() {
           </div>
 
           <div className="row g-5">
-
-            {/* Contact Form */}
             <div className="col-lg-7">
               <div className="p-4 p-lg-5 border rounded-4 shadow-sm bg-white">
-
                 <h3 className="fw-bold mb-4">Send a Message ✉️</h3>
 
-                <form ref={form} onSubmit={sendEmail}>
-
-                  {/* Name */}
+                {/* لاحظ: بدون ref */}
+                <form onSubmit={sendEmail}>
                   <div className="mb-4">
                     <label className="form-label fw-semibold">Full Name</label>
                     <input
@@ -68,7 +63,6 @@ export default function Contact() {
                     />
                   </div>
 
-                  {/* Email */}
                   <div className="mb-4">
                     <label className="form-label fw-semibold">Email Address</label>
                     <input
@@ -80,7 +74,6 @@ export default function Contact() {
                     />
                   </div>
 
-                  {/* Subject */}
                   <div className="mb-4">
                     <label className="form-label fw-semibold">Subject</label>
                     <input
@@ -91,7 +84,6 @@ export default function Contact() {
                     />
                   </div>
 
-                  {/* Message */}
                   <div className="mb-4">
                     <label className="form-label fw-semibold">Message</label>
                     <textarea
@@ -103,19 +95,15 @@ export default function Contact() {
                     ></textarea>
                   </div>
 
-                  {/* Button */}
-                  <button className="btn btn-dark btn-lg px-5 rounded-pill">
+                  <button type="submit" className="btn btn-dark btn-lg px-5 rounded-pill">
                     Send Message
                   </button>
-
                 </form>
               </div>
             </div>
 
-            {/* Contact Info */}
             <div className="col-lg-5">
               <div className="p-4 p-lg-5 bg-light rounded-4 h-100 shadow-sm">
-
                 <p className="text-secondary lh-lg">
                   I’m currently available for freelance work,
                   collaborations, and exciting digital projects.
@@ -138,17 +126,14 @@ export default function Contact() {
                   </div>
                 </div>
 
-                {/* Social Links */}
                 <div className="mt-5">
                   <h5 className="fw-bold mb-3">Follow Me</h5>
-
                   <div className="d-flex gap-3 flex-wrap">
                     <a href="https://github.com/hamed97351" className="btn btn-outline-dark rounded-pill px-4">GitHub</a>
                     <a href="https://www.linkedin.com/in/حامد-احمد-009342361/" className="btn btn-outline-dark rounded-pill px-4">LinkedIn</a>
                     <a href="https://www.facebook.com/share/19y6gmyXPW" className="btn btn-outline-dark rounded-pill px-4">Facebook</a>
                     <a href="#" className="btn btn-outline-dark rounded-pill px-4">Twitter</a>
                   </div>
-
                 </div>
 
               </div>
