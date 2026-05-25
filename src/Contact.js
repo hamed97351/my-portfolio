@@ -13,14 +13,14 @@ export default function Contact() {
     };
 
     console.log("Form Data:", formData);
+const res = await fetch("https://mohammed.epizy.com/myapi/contact.php", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(formData),
+});
 
-    const res = await fetch("http://localhost/myapi/contact.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
 
     const data = await res.json();
     console.log("Response:", data);
@@ -145,3 +145,6 @@ export default function Contact() {
     </div>
   );
 }
+
+
+
