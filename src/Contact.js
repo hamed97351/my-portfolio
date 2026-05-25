@@ -13,7 +13,7 @@ export default function Contact() {
     };
 
     console.log("Form Data:", formData);
-const res = await fetch("https://mohammed.epizy.com/myapi/contact.php", {
+const res = await fetch(" https://myportifolioy.gamer.gd/myapi/contact.php ", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
