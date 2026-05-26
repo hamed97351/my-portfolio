@@ -1,35 +1,29 @@
 import React from "react";
 
 export default function Contact() {
+const sendEmail = async (e) => {
+  e.preventDefault();
 
-  const sendEmail = async (e) => {
-    e.preventDefault();
+  // إنشاء FormData من الفورم مباشرة
+  const formDataToSend = new FormData(e.target);
 
-    const formData = {
-      user_name: e.target.user_name.value,
-      user_email: e.target.user_email.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
-    };
+  // إرسال البيانات إلى contact.php
+  const res = await fetch("https://myportifolioy.gamer.gd/myapi/contact.php", {
+    method: "POST",
+    body: formDataToSend,
+  });
 
- console.log("Form Data:", formData);
+  // قراءة الرد كنص وليس JSON
+  const text = await res.text();
+  console.log("Response:", text);
 
-const res = await fetch("https://myportifolioy.gamer.gd/myapi/contact.php", {
-  method: "POST",
-  body: new FormData(formRef.current),
-});
-
-
-    const data = await res.json();
-    console.log("Response:", data);
-
-    if (data.status === "success") {
-      alert("Message saved successfully!");
-      e.target.reset();
-    } else {
-      alert("Failed to save message.");
-    }
-  };
+  if (text.includes("success")) {
+    alert("Message saved successfully!");
+    e.target.reset();
+  } else {
+    alert("Failed to save message.");
+  }
+};
 
   return (
     <div className="container py-5 mt-5">
