@@ -12,13 +12,11 @@ export default function Contact() {
       message: e.target.message.value,
     };
 
-    console.log("Form Data:", formData);
-const res = await fetch(" https://myportifolioy.gamer.gd/myapi/contact.php ", {
+ console.log("Form Data:", formData);
+
+const res = await fetch("https://myportifolioy.gamer.gd/myapi/contact.php", {
   method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify(formData),
+  body: new FormData(formRef.current),
 });
 
 

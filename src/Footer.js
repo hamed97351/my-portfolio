@@ -47,7 +47,7 @@ export default function Footer() {
             </Link>
           </li>
               <li className="nav-item">
-            <Link className="text-decoration-none text-light-emphasis" to="/FProjects">
+            <Link className="text-decoration-none text-light-emphasis" to="/FProjectsnpm">
               project
             </Link>
           </li>
