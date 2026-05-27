@@ -1,19 +1,22 @@
 import { Link } from "react-router-dom";
+import tree from "../images/tree.jpg";
 function Home() {
   return (
     
-    <  div
-  className="container py-3 mt-3"
+
+
+<div
   style={{
-    backgroundImage: "url('/images/tree.jpg')",
+    backgroundImage: `url(${tree})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundAttachment: "fixed",
     minHeight: "100vh",
-    paddingTop: "120px" // حتى لا يغطي النافبار المحتوى
+    paddingTop: "120px"
   }}
-  
+></div>
+
 >
 <div
   style={{
